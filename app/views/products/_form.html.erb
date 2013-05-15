@@ -1,0 +1,73 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :god %><br />
+    <%= f.number_field :god %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :diagonal %><br />
+    <%= f.text_field :diagonal %>
+  </div>
+  <div class="field">
+    <%= f.label :os %><br />
+    <%= f.number_field :os %>
+  </div>
+  <div class="field">
+    <%= f.label :op %><br />
+    <%= f.number_field :op %>
+  </div>
+  <div class="field">
+    <%= f.label :volume %><br />
+    <%= f.number_field :volume %>
+  </div>
+  <div class="field">
+    <%= f.label :chastota %><br />
+    <%= f.number_field :chastota %>
+  </div>
+  <div class="field">
+    <%= f.label :core %><br />
+    <%= f.number_field :core %>
+  </div>
+  <div class="field">
+    <%= f.label :resolution %><br />
+    <%= f.text_field :resolution %>
+  </div>
+  <div class="field">
+    <%= f.label :camera %><br />
+    <%= f.number_field :camera %>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br />
+    <%= f.number_field :time %>
+  </div>
+  <div class="field">
+    <%= f.label :image_url %><br />
+    <%= f.text_field :image_url %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

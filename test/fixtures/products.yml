@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  god: 1
+  description: MyText
+  diagonal: 9.99
+  os: 1
+  op: 1
+  volume: 1
+  chastota: 1
+  core: 1
+  resolution: MyString
+  camera: 1
+  time: 1
+  image_url: MyString
+  price: 9.99
+
+two:
+  title: MyString
+  god: 1
+  description: MyText
+  diagonal: 9.99
+  os: 1
+  op: 1
+  volume: 1
+  chastota: 1
+  core: 1
+  resolution: MyString
+  camera: 1
+  time: 1
+  image_url: MyString
+  price: 9.99
