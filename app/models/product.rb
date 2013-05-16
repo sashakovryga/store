@@ -17,7 +17,7 @@ before_destroy :ensure_not_referenced_by_any_line_item
 :message=>'Разрешение должно быть в формате 1234*1234'
 }
 validates :time, :format=> {
-:with=> %r{^[0-9]\-([0-9])$}i,
+:with=> %r{^[0-9]\-[0-9]$}i,
 :message=>'Время должно быть указано по примеру 6-7'
 }
 
