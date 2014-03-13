@@ -12,18 +12,41 @@
  *= require_tree .
  */
 #banner {
-  background: #9c9;
-  padding: 10px;
+  background: #5085D4;
+  padding-top: 10px;
+  padding-left: 10px;
   border-bottom: 2px solid;
-  font: small-caps 40px/40px "Times New Roman", serif;
-  color: #282;
+ 
+  color: white;
   text-align: center;
 
   img {
     float: left;
   }
-}
 
+  #login{
+    float: right;
+    
+  }
+  p{
+  float:center;
+   font: bold 22px sans-serif;
+  }
+
+  #panel{
+width:100%;
+ padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid;
+   }
+}
+ #panel{
+width:100%;
+  float:top;
+ padding-top: 50px;
+  padding-bottom: 100px;
+  border-bottom: 2px solid;
+   }
 .time {
 padding-top: 30em;
 color:#bfb;
@@ -31,7 +54,7 @@ color:#bfb;
 
 #notice {
   color: #000 !important;
-  border: 2px solid red;
+  border: 2px solid #5085D4;
   padding: 1em;
   margin-bottom: 2em;
   background-color: #f0f0f0;
@@ -39,10 +62,10 @@ color:#bfb;
 }
 
 #columns {
-  background: #141;
+  background: #5085D4;
 
   #main {
-    margin-left: 17em;
+    margin-left: 23em;
     padding: 1em;
     background: white;
   }
@@ -51,14 +74,14 @@ color:#bfb;
     float: left;
     padding: 1em 2em;
     width: 13em;
-    background: #141;
+    background: #5085D4;
 
     ul {
       padding: 0;
       li {
         list-style: none;
         a {
-          color: #bfb;
+          color: white;
           font-size: small;
         }
       }
@@ -75,10 +98,37 @@ color:#bfb;
       font-size:smaller;
       color:white;
         table{
-          border-top: 1px dotted #595;
-          border-bottom: 1px dotted #595;
+          border-top: 1px dotted white;
+          border-bottom: 1px dotted white;
           margin-bottom: 10px;
         }
     }
   }
+}
+
+.depot_form fieldset {
+background: #efe;
+}
+.depot_form legend {
+color: #dfd;
+background: #141;
+font-family: sans-serif;
+padding: 0.2em 1em;
+}
+.depot_form label {
+width: 5em;
+float: left;
+text-align: right;
+padding-top: 0.2em;
+margin-right: 0.1em;
+display: block;
+}
+.depot_form select, .depot_form textarea, .depot_form input {
+margin-left: 0.5em;
+}
+.depot_form .submit {
+margin-left: 4em;
+}
+.depot_form div {
+margin: 0.5em 0;
 }

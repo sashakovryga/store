@@ -3,9 +3,9 @@ class LineItemsController < ApplicationController
   # GET /line_items.json
   def index
     @line_items = LineItem.all
-
+@cart=current_cart
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { redirect_to store_path, :notice => 'Вы не можете просматривать эту страницу!!!' }
       format.json { render :json => @line_items }
     end
   end
@@ -14,9 +14,9 @@ class LineItemsController < ApplicationController
   # GET /line_items/1.json
   def show
     @line_item = LineItem.find(params[:id])
-
+@cart=current_cart
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { redirect_to store_path, :notice => 'Вы не можете просматривать эту страницу!!!' }
       format.json { render :json => @line_item }
     end
   end
@@ -25,16 +25,20 @@ class LineItemsController < ApplicationController
   # GET /line_items/new.json
   def new
     @line_item = LineItem.new
-
+@cart=current_cart
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { redirect_to store_path, :notice => 'Вы не можете просматривать эту страницу!!!' }
       format.json { render :json => @line_item }
     end
   end
 
   # GET /line_items/1/edit
   def edit
+    @cart=current_cart
     @line_item = LineItem.find(params[:id])
+    respond_to do |format|
+      format.html { redirect_to store_path, :notice => 'Вы не можете просматривать эту страницу!!!' }
+    end
   end
 
   # POST /line_items
@@ -62,7 +66,7 @@ product = Product.find(params[:product_id])
   # PUT /line_items/1.json
   def update
     @line_item = LineItem.find(params[:id])
-
+@cart=current_cart
     respond_to do |format|
       if @line_item.update_attributes(params[:line_item])
         format.html { redirect_to @line_item, :notice => 'Line item was successfully updated.' }
@@ -79,7 +83,7 @@ product = Product.find(params[:product_id])
   def destroy
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
-
+@cart=current_cart
     respond_to do |format|
       format.html { redirect_to line_items_url }
       format.json { head :no_content }

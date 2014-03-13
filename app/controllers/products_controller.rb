@@ -5,16 +5,24 @@ class ProductsController < ApplicationController
     @products = Product.all
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @products }
+      format.html { redirect_to store_path, :notice => 'Вы не можете просматривать эту страницу!!!' }
     end
   end
+def about
+  respond_to do |format|
+      format.html # show.html.erb
+    end
+end
+  def download_pdf
+  output = ProductsReport.new.to_pdf
+  send_data output, :type => 'application/pdf', :filename => "products.pdf"
+end
 
   # GET /products/1
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
-
+@cart=current_cart
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @product }
@@ -27,7 +35,7 @@ class ProductsController < ApplicationController
     @product = Product.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { redirect_to store_path, :notice => 'Вы не можете просматривать эту страницу!!!' }
       format.json { render :json => @product }
     end
   end
@@ -35,6 +43,9 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
+    respond_to do |format|
+      format.html { redirect_to store_path, :notice => 'Вы не можете просматривать эту страницу!!!' }
+    end
   end
 
   # POST /products
@@ -76,7 +87,7 @@ class ProductsController < ApplicationController
     @product.destroy
 
     respond_to do |format|
-      format.html { redirect_to products_url }
+      format.html { redirect_to store_path, :notice => 'Вы не можете просматривать эту страницу!!!' }
       format.json { head :no_content }
     end
   end

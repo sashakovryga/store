@@ -1,4 +1,12 @@
 class CartsController < InheritedResources::Base
+def index
+	@cart=current_cart
+	respond_to do |format|
+		format.html  { redirect_to store_path, :notice => 'Вы не можете просматривать эту страницу!!!' }
+
+		end
+end
+
 def show
 	begin
 	@cart = Cart.find(params[:id])
@@ -7,7 +15,8 @@ def show
 		redirect_to store_url, :notice => 'Invalid cart'
 	else
 		respond_to do |format|
-		format.html # show.html.erb
+		format.html  { redirect_to store_path, :notice => 'Вы не можете просматривать эту страницу!!!' }
+
 		format.xml { render :xml => @cart }
 		end
 	end

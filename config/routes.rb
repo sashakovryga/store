@@ -1,4 +1,13 @@
 Qwerty::Application.routes.draw do
+
+  resources :welcomes
+
+
+devise_for :users
+
+  resources :orders
+
+
   resources :line_items
 
 
@@ -10,7 +19,11 @@ root :to => 'store#index' , :as => 'store'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  resources :products
+  resources :products do
+  collection do
+    get 'download_pdf'
+  end
+end
 
 
   # The priority is based upon order of creation:

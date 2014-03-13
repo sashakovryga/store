@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,27 +8,68 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= controller.controller_name %>">
+         <p class="alert"><%= alert %></p>
   <div id="banner">
-    <%= image_tag("slon.gif") %>
+    <%=link_to(image_tag("14.gif" ,:size => "110x110"), store_path)%>
+    <p>Интернет-магазин планшетов "Редкий полосатый слон"</p>
+      <div id ="login">
+    <% if user_signed_in? %>
+          Пользователь <%= current_user.email %>
+
+          <hr>
+          <%= link_to(image_tag("vyhod.jpg" ,:size => "70x30"), destroy_user_session_path, :method=>:delete ) %>
+
+       <% else %>
+          <%= link_to(image_tag("registerbuttonblue.gif" ,:size => "130x50"), new_user_registration_path) %> 
+         <%= link_to(image_tag("vhod.gif" ,:size => "130x50"), new_user_session_path) %>
+       <% end %>
+     </div>
+      <div id = "poisk">
+        <%= form_tag store_path, :method => :get do %>
+        <p>
+      <%= text_field_tag :search, params[:search] %> 
+      <%= submit_tag "Поиск", :title => nil %>
+        </p>
+  <% end %>
+      </div>
 
   </div>
+  
   <div id="columns">
+
     <div id="side">
+
       <div id="cart" >
-<%= render @cart %>
+        <% if current_user %>
+<%= render @cart%>
+<%end%>
 </div>
 
       <ul>
-        <li><a href="http://www....">Home</a></li>
-        <li><a href="http://www..../faq">Questions</a></li>
-        <li><a href="http://www..../news">News</a></li>
-        <li><a href="http://www..../contact">Contact</a></li>
-	<li class = time><%= Time.now %></li>
+        <li><a href="/?utf8=✓&search=Apple&commit=Search">Apple</a></li>
+        <li><a href="/?utf8=✓&search=google&commit=Search">Google</a></li>
+        <li><a href="/?utf8=✓&search=Asus&commit=Search">ASUS</a></li>
+        <li><a href="/?utf8=✓&search=Prestigio&commit=Search">Prestigio</a></li>
+        
+        <p></p>
+        <hr>
+        <li><a href="<%= welcomes_path%>">Информация о магазине</a></li>
+        <% if user_signed_in? %>
+        <li><%= link_to("Заказы", orders_path) %></li>
+        <%end%>
+
+      </ul>
+ 
     </div>
+
     <div id="main">
 
       <%= yield %>
     </div>
+  </div>
+
+  <div>
+  <p><a href="<%= download_pdf_products_path%>">Скачать прайс-лист планшетов</a></p>
   </div>
 
 </body>

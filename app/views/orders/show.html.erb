@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Имя:</b>
+  <%= @order.name %>
+</p>
+
+<p>
+  <b>Адрес:</b>
+  <%= @order.address %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @order.email %>
+</p>
+
+<p>
+  <b>Способ оплаты:</b>
+  <%= @order.pay_type %>
+</p>
+
+
+<%= link_to 'Изменить', edit_order_path(@order) %> |
+<%= link_to 'Назад', orders_path %>

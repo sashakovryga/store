@@ -45,3 +45,19 @@ table {
   .list_line_odd {
     background:   #f8b0f8;
   }
+
+  #product{
+  WIDTH: 100%;
+  float:center;
+    th{
+    background: #aaaaaa;
+    }  
+    td{
+    width:40%;
+    }
+  }
+
+  p{
+  float:center;
+   font: bold ,44px, #aaaaaa,sans-serif;
+  }

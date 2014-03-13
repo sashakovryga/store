@@ -1,75 +1,59 @@
-<p id="notice"><%= notice %></p>
+<p ><%= @product.title%></p>
+<p ><%= number_to_currency(@product.price)%></p>
+<%= image_tag(@product.image_url ,:size => "170x170")%>
+<table id="product", border=1>
+    <th COLSPAN="2">Общая информация</th>
+  <tr>
+    <td>Дата выхода на рынок:</td>
+    <td><%= @product.god %> г.</td>
+  </tr>
+  <tr>
+    <td>Описание:</td>
+    <td><%= @product.description %></td>
+  </tr>
+  <th COLSPAN="2">Основные</th>
+  
+  <tr>
+    <td>Диагональ:</td>
+    <td><%= @product.diagonal %>"</td>
+  </tr>
+  <tr>
+    <td>Операционная система:</td>
+    <td><%= @product.os %></td>
+  </tr>
+  <tr>
+    <td>Оперативная память:</td>
+    <td><%= @product.op %> МБ</td>
+  </tr>
+  <tr>
+    <td>Внутренняя память:</td>
+    <td><%= @product.volume %> ГБ</td>
+  </tr>
+  
+   <th COLSPAN="2">Чипсет и процессор</th>
+  
+  <tr>
+    <td>Количество ядер:</td>
+    <td><%= @product.core %></td>
+  </tr>
+  <tr>
+    <td>Частота процессора:</td>
+    <td><%= @product.chastota %> МГц</td>
+  </tr>
 
-<p>
-  <b>Title:</b>
-  <%= @product.title %>
-</p>
+<th COLSPAN="2">Другие</th>
+  
+  <tr>
+    <td>Разрешение экрана:</td>
+    <td><%= @product.resolution %></td>
+  </tr>
+  <tr>
+    <td>Камера:</td>
+    <td><%= @product.camera %> Мп</td>
+  </tr>
+  <tr>
+    <td>Время работы:</td>
+    <td><%= @product.time %> часов</td>
+  </tr>
 
-<p>
-  <b>God:</b>
-  <%= @product.god %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @product.description %>
-</p>
-
-<p>
-  <b>Diagonal:</b>
-  <%= @product.diagonal %>
-</p>
-
-<p>
-  <b>Os:</b>
-  <%= @product.os %>
-</p>
-
-<p>
-  <b>Op:</b>
-  <%= @product.op %>
-</p>
-
-<p>
-  <b>Volume:</b>
-  <%= @product.volume %>
-</p>
-
-<p>
-  <b>Chastota:</b>
-  <%= @product.chastota %>
-</p>
-
-<p>
-  <b>Core:</b>
-  <%= @product.core %>
-</p>
-
-<p>
-  <b>Resolution:</b>
-  <%= @product.resolution %>
-</p>
-
-<p>
-  <b>Camera:</b>
-  <%= @product.camera %>
-</p>
-
-<p>
-  <b>Time:</b>
-  <%= @product.time %>
-</p>
-
-<p>
-  <b>Image url:</b>
-  <%= @product.image_url %>
-</p>
-
-<p>
-  <b>Price:</b>
-  <%= @product.price %>
-</p>
-
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+  

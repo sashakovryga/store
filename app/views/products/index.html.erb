@@ -2,20 +2,20 @@
 
 <table>
   <tr>
-    <th>Title</th>
-    <th>God</th>
-    <th>Description</th>
-    <th>Diagonal</th>
-    <th>Os</th>
-    <th>Op</th>
-    <th>Volume</th>
-    <th>Chastota</th>
-    <th>Core</th>
-    <th>Resolution</th>
-    <th>Camera</th>
-    <th>Time</th>
+    <th>Название</th>
+    <th>Год</th>
+    <th>Описание</th>
+    <th>Диагональ</th>
+    <th>Операционная система</th>
+    <th>Оперативная память</th>
+    <th>Доступная память</th>
+    <th>Частота процессора</th>
+    <th>Количество ядер</th>
+    <th>Разрешение экрана</th>
+    <th>Камера</th>
+    <th>Время работы</th>
     <th>Image url</th>
-    <th>Price</th>
+    <th>Цена</th>
     <th></th>
     <th></th>
     <th></th>
@@ -37,13 +37,19 @@
     <td><%= product.time %></td>
     <td><%= product.image_url %></td>
     <td><%= product.price %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+
+    <td><%= link_to 'Просмотреть', product %></td>
+    <% if can? :update, product %>
+    <td><%= link_to 'Изменить', edit_product_path(product) %></td>
+    <%end%>
+    <% if can? :destroy, product %>
+    <td><%= link_to 'Удалить', product, :method => :delete, :data => { :confirm => 'Вы уверены?' } %></td>
+    <%end%>
   </tr>
 <% end %>
 </table>
 
 <br />
-
+<% if can? :create, Product %>
 <%= link_to 'New Product', new_product_path %>
+<%end%>

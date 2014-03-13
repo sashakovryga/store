@@ -5,7 +5,7 @@ class CreateProducts < ActiveRecord::Migration
       t.integer :god
       t.text :description
       t.decimal :diagonal
-      t.integer :os
+      t.string :os
       t.integer :op
       t.integer :volume
       t.integer :chastota

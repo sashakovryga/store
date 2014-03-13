@@ -1,0 +1,35 @@
+<h1>Listing orders</h1>
+
+<table>
+  <tr>
+    <th>Имя</th>
+    <th>Адрес</th>
+    <th>Email</th>
+    <th>Способ оплаты</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @orders.each do |order| %>
+<% if order.user_id == current_user.id %>
+  <tr>
+    <td><%= order.name %></td>
+    <td><%= order.address %></td>
+    <td><%= order.email %></td>
+    <td><%= order.pay_type %></td>
+    <td><%= link_to 'Просмотреть', order %></td>
+    <td><%= link_to 'Изменить', edit_order_path(order) %></td>
+    <td><%= link_to 'Удалить', order, :method => :delete, :data => { :confirm => 'Вы уверены?' } %></td>
+  </tr>
+ <%else%>
+ <tr>
+  <td>-</td>
+ </tr>
+ <%end%>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Новый заказ', new_order_path %>
